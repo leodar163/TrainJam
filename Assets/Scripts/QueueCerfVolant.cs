@@ -39,7 +39,7 @@ public class QueueCerfVolant : MonoBehaviour
         lineRend.positionCount = tailleQueue;
         for (int i = 0; i < lineRend.positionCount; i++)
         {
-            lineRend.SetPosition(i, new Vector3(-distanceEntreSegments * i, 0, 0));
+            lineRend.SetPosition(i, new Vector3(-distanceEntreSegments * i, 0, 0) + transform.parent.position);
         }
     }
     private void SimulerQueue()
@@ -51,7 +51,7 @@ public class QueueCerfVolant : MonoBehaviour
             Vector3 positionPrec = lineRend.GetPosition(i - 1);
             Vector2 positionAct = lineRend.GetPosition(i);
             Vector3 position = Vector3.SmoothDamp(positionAct, positionPrec - cerfvolant.transform.right * distanceEntreSegments, ref velocite, tempsSegment * Time.deltaTime);
-
+            
             position += transform.up * Mathf.Sin(Time.time * (vitesseOndulation)) * amplitudeOndulation ;
 
             lineRend.SetPosition(i, position);

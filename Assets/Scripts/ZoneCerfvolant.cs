@@ -8,7 +8,7 @@ public class ZoneCerfvolant : MonoBehaviour
     public float MinHauteur;
 
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(new Vector3(-10, MaxHauteur), new Vector3(10, MaxHauteur));
