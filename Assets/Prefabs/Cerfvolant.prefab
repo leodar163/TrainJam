@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e547689de44024fbb51adb0ca24634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  queue: {fileID: 4359719019048541120}
   vitesseRotation: 10
   vitessemouvement: 3
   zoneCerfvolant: {fileID: 0}
@@ -144,25 +145,6 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0.041, y: 0, z: -0.29932833}
-  - {x: -0.15900001, y: 0, z: -0.29932833}
-  - {x: -0.359, y: 0, z: -0.29932833}
-  - {x: -0.559, y: 0, z: -0.29932833}
-  - {x: -0.759, y: 0, z: -0.29932833}
-  - {x: -0.959, y: 0, z: -0.29932833}
-  - {x: -1.159, y: 0, z: -0.29932833}
-  - {x: -1.359, y: 0, z: -0.29932833}
-  - {x: -1.559, y: 0, z: -0.29932833}
-  - {x: -1.7590001, y: 0, z: -0.29932833}
-  - {x: -1.959, y: 0, z: -0.29932833}
-  - {x: -2.1590002, y: 0, z: -0.29932833}
-  - {x: -2.3590002, y: 0, z: -0.29932833}
-  - {x: -2.5590003, y: 0, z: -0.29932833}
-  - {x: -2.759, y: 0, z: -0.29932833}
-  - {x: -2.959, y: 0, z: -0.29932833}
-  - {x: -3.1590002, y: 0, z: -0.29932833}
-  - {x: -3.3590002, y: 0, z: -0.29932833}
-  - {x: -3.5590003, y: 0, z: -0.29932833}
-  - {x: -3.759, y: 0, z: -0.29932833}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -264,8 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cerfvolant: {fileID: 4359719018654341703}
   lineRend: {fileID: 4359719018721329241}
-  tailleQueue: 20
-  distanceEntreSegments: 0.2
+  distanceEntreSegments: 0.4
   tempsSegment: 6
   vitesseOndulation: 5
   amplitudeOndulation: 0.003

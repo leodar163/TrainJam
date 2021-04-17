@@ -9,14 +9,7 @@ public class Bob : MonoBehaviour
     [SerializeField] private Transform sprite;
     [SerializeField] private float forceSaut;
     [SerializeField] private float forceAtterrissage;
-    [SerializeField] [Min(1)] private int pV = 1;
-    public int PV
-    {
-        get
-        {
-            return pV;
-        }
-    }
+    [SerializeField] private Cerfvolant cerfvolant;
 
     private void OnDrawGizmos()
     {
@@ -72,7 +65,7 @@ public class Bob : MonoBehaviour
 
     private bool EstAuSol()
     {
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, -transform.up, 0.1f, LayerMask.GetMask("Sol"));
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, -transform.up, 0.15f, LayerMask.GetMask("Sol"));
         if(ray.collider)
         {
             return true;
@@ -83,8 +76,10 @@ public class Bob : MonoBehaviour
 
     public void Blesser(int degats = 1)
     {
-        pV = Mathf.Max(0, pV - degats);
-        print("Bob a pris cher de " + degats);
-        if (pV >= 0) GameManager.GameOver();
+        for (int i = 0; i < degats; i++)
+        {
+            if (cerfvolant.PV > 0)
+                cerfvolant.Blesser();
+        } 
     }
 }

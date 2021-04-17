@@ -312,8 +312,9 @@ MonoBehaviour:
   rb: {fileID: 7054209054427242473}
   animator: {fileID: 0}
   sprite: {fileID: 7054209054227171686}
-  forceSaut: 400
-  forceAtterrissage: 1000
+  forceSaut: 350
+  forceAtterrissage: 1500
+  pV: 1
 --- !u!114 &8758787110783854983
 MonoBehaviour:
   m_ObjectHideFlags: 0

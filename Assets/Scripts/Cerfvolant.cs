@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cerfvolant : MonoBehaviour
 {
+    public QueueCerfVolant queue;
     [SerializeField] private float vitesseRotation = 1f;
     [SerializeField] private float vitessemouvement = 1f;
     [SerializeField] private ZoneCerfvolant zoneCerfvolant;
@@ -62,7 +63,17 @@ public class Cerfvolant : MonoBehaviour
     public void Blesser(int degats = 1)
     {
         pV = Mathf.Max(0, pV - degats);
-        print("Cerfvolant a pris cher de " + degats);
-        if (pV >= 0) GameManager.GameOver();
+        if (pV <= 0) GameManager.GameOver();
+        else
+            for (int i = 0; i < degats; i++)
+            {
+                queue.RetirerSection();
+            }
+        
+    }
+
+    public void Soigner(int soin = 1)
+    {
+        pV += soin;
     }
 }
