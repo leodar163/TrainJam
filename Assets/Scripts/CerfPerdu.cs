@@ -8,6 +8,7 @@ public class CerfPerdu : MonoBehaviour
     public float vitesse;
     public Vector3 direction;
     [SerializeField] private Collider2D col;
+    [SerializeField] private int gainScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +33,15 @@ public class CerfPerdu : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.transform.parent.TryGetComponent(out Cerfvolant cerfvolant))
-            {
-                estTrouvee = true;
-                transform.parent = cerfvolant.queue.transform;
-                cerfvolant.queue.AjouterSection(this);
-                cerfvolant.Soigner();
+        if (collision.transform.parent.TryGetComponent(out Cerfvolant cerfvolant))
+        {
+            estTrouvee = true;
+            transform.parent = cerfvolant.queue.transform;
+            cerfvolant.queue.AjouterSection(this);
+            cerfvolant.Soigner();
             col.enabled = false;
-            }
+            Scoring.Instance.GagnerScore(gainScore, true);
+        }
     }
 
     public void FaireLaQueue(Vector3 postion, Vector3 cible)

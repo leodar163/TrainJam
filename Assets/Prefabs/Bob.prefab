@@ -314,7 +314,7 @@ MonoBehaviour:
   sprite: {fileID: 7054209054227171686}
   forceSaut: 350
   forceAtterrissage: 1500
-  pV: 1
+  cerfvolant: {fileID: 0}
 --- !u!114 &8758787110783854983
 MonoBehaviour:
   m_ObjectHideFlags: 0

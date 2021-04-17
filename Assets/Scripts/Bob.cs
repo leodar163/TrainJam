@@ -10,6 +10,7 @@ public class Bob : MonoBehaviour
     [SerializeField] private float forceSaut;
     [SerializeField] private float forceAtterrissage;
     [SerializeField] private Cerfvolant cerfvolant;
+    private bool estAccroupi = false;
 
     private void OnDrawGizmos()
     {
@@ -36,7 +37,7 @@ public class Bob : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if(EstAuSol())
+            if(EstAuSol() && !estAccroupi)
             {
                 rb.AddForce(transform.up * forceSaut);
             }
@@ -47,6 +48,7 @@ public class Bob : MonoBehaviour
             {
                 sprite.localScale = new Vector3(1, 1, 1);
                 sprite.localPosition = new Vector3(0, 0.5f, 0);
+                estAccroupi = true;
             }
             else
             {
@@ -59,6 +61,7 @@ public class Bob : MonoBehaviour
             {
                 sprite.localScale = new Vector3(1, 2, 1);
                 sprite.localPosition = new Vector3(0, 1, 0);
+                estAccroupi = false;
             }
         }
     }
