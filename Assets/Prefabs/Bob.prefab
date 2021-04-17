@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5849166505856499410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.51, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7054209054427242479}
@@ -82,7 +82,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.040403366
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -328,4 +328,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cerfvolant: {fileID: 0}
   lineRend: {fileID: 4388431636661733718}
-  segments: 0
+  segments: 2

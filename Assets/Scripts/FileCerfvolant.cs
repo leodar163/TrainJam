@@ -11,12 +11,32 @@ public class FileCerfvolant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InitialiserFile();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        SimulerFileTendu();
+    }
+
+    private void InitialiserFile()
+    {
+        lineRend.positionCount = segments;
+        
+    }
+
+    private void SimulerFileTendu()
+    {
+        lineRend.SetPosition(0, lineRend.transform.position);
+        for (int i = 1; i < lineRend.positionCount; i++)
+        {
+            lineRend.SetPosition(i, Vector3.Lerp(cerfvolant.transform.position, lineRend.transform.position, i / lineRend.positionCount));
+        }
     }
 }

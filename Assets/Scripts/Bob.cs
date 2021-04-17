@@ -9,6 +9,14 @@ public class Bob : MonoBehaviour
     [SerializeField] private Transform sprite;
     [SerializeField] private float forceSaut;
     [SerializeField] private float forceAtterrissage;
+    [SerializeField] [Min(1)] private int pV = 1;
+    public int PV
+    {
+        get
+        {
+            return pV;
+        }
+    }
 
     private void OnDrawGizmos()
     {
@@ -71,5 +79,12 @@ public class Bob : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void Blesser(int degats = 1)
+    {
+        pV = Mathf.Max(0, pV - degats);
+        print("Bob a pris cher de " + degats);
+        if (pV >= 0) GameManager.GameOver();
     }
 }

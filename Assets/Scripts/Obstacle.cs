@@ -30,5 +30,22 @@ public class Obstacle : MonoBehaviour
         transform.Translate(direction * vitesse * Time.fixedDeltaTime);
     }
 
-   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.transform.TryGetComponent(out Cerfvolant cervolant))
+        {
+            cervolant.Blesser();
+            SeDetruire();   
+        }
+        else if(collision.transform.TryGetComponent(out Bob bob))
+        {
+            bob.Blesser();
+            SeDetruire();
+        }
+    }
+
+    private void SeDetruire()
+    {
+        Destroy(gameObject);
+    }
 }

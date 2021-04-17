@@ -7,6 +7,14 @@ public class Cerfvolant : MonoBehaviour
     [SerializeField] private float vitesseRotation = 1f;
     [SerializeField] private float vitessemouvement = 1f;
     [SerializeField] private ZoneCerfvolant zoneCerfvolant;
+    [SerializeField] [Min(1)] private int pV = 1;
+    public int PV
+    {
+        get
+        {
+            return pV;
+        }
+    }
 
     void Start()
     {
@@ -49,5 +57,12 @@ public class Cerfvolant : MonoBehaviour
         position.z = transform.position.z;
 
         transform.position = position;
+    }
+
+    public void Blesser(int degats = 1)
+    {
+        pV = Mathf.Max(0, pV - degats);
+        print("Cerfvolant a pris cher de " + degats);
+        if (pV >= 0) GameManager.GameOver();
     }
 }
