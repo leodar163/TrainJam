@@ -70,16 +70,14 @@ public class Bob : MonoBehaviour
         {
             return true;
         }
-
         return false;
     }
 
     public void Blesser(int degats = 1)
     {
-        for (int i = 0; i < degats; i++)
+        if (cerfvolant.PV > 0)
         {
-            if (cerfvolant.PV > 0)
-                cerfvolant.Blesser();
-        } 
+            cerfvolant.Blesser(degats);
+        }
     }
 }

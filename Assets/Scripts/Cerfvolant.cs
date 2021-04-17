@@ -62,14 +62,16 @@ public class Cerfvolant : MonoBehaviour
 
     public void Blesser(int degats = 1)
     {
-        pV = Mathf.Max(0, pV - degats);
-        if (pV <= 0) GameManager.GameOver();
-        else
-            for (int i = 0; i < degats; i++)
+        for (int i = 0; i < degats; i++)
+        {
+            pV = Mathf.Max(0, pV-1);
+            if(pV >= 1)queue.RetirerSection();
+            else if (pV <= 0)
             {
-                queue.RetirerSection();
+                GameManager.GameOver();
+                break;
             }
-        
+        }
     }
 
     public void Soigner(int soin = 1)
