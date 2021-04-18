@@ -69,11 +69,11 @@ public class SpawnerCerfPerdu : MonoBehaviour
             yield return new WaitForEndOfFrame();
             temps += Time.deltaTime;
         }
-        SpawnObstacle();
+        SpawnCerfPerdu();
         StartCoroutine(RoutineSpawn());
     }
 
-    private void SpawnObstacle()
+    private void SpawnCerfPerdu()
     {
         Vector3 position = pointsSpawn[Random.Range(0, pointsSpawn.Length)].position;
         Vector3 aleaDecalage;
@@ -88,7 +88,7 @@ public class SpawnerCerfPerdu : MonoBehaviour
         }
         position += aleaDecalage;
 
-        int alea = Random.Range(0, cerfPerdus.Length - 1);
+        int alea = Random.Range(0, cerfPerdus.Length);
         if (Instantiate(cerfPerdus[alea]).TryGetComponent(out CerfPerdu cerfPerdu))
         {
             cerfPerdu.direction = direction;

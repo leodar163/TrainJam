@@ -14,6 +14,7 @@ public class Bob : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position - transform.up * 0.1f);
     }
     // Start is called before the first frame update
@@ -46,8 +47,6 @@ public class Bob : MonoBehaviour
         {
             if(EstAuSol())
             {
-                sprite.localScale = new Vector3(1, 1, 1);
-                sprite.localPosition = new Vector3(0, 0.5f, 0);
                 estAccroupi = true;
             }
             else
@@ -59,11 +58,11 @@ public class Bob : MonoBehaviour
         {
             if(EstAuSol())
             {
-                sprite.localScale = new Vector3(1, 2, 1);
-                sprite.localPosition = new Vector3(0, 1, 0);
                 estAccroupi = false;
             }
         }
+        animator.SetBool("Accroupi", estAccroupi);
+        animator.SetBool("Saute", !EstAuSol());
     }
 
     private bool EstAuSol()

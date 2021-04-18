@@ -88,7 +88,7 @@ public class SpawnerObstacle : MonoBehaviour
         }
         position += aleaDecalage;
 
-        int alea = Random.Range(0, obstacles.Length - 1);
+        int alea = Random.Range(0, obstacles.Length);
         if(Instantiate(obstacles[alea]).TryGetComponent(out Obstacle obstacle))
         {
             obstacle.direction = direction;
