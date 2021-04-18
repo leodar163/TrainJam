@@ -8,7 +8,16 @@ public class CerfPerdu : MonoBehaviour
     public float vitesse;
     public Vector3 direction;
     [SerializeField] private Collider2D col;
+
+    [Header("Feedback")]
+    [SerializeField] ParticleSystem fbCol;
+    [SerializeField] Color couleurFB;
     [SerializeField] private int gainScore;
+
+    [Header("son")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] sonsRamassage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +50,16 @@ public class CerfPerdu : MonoBehaviour
             cerfvolant.Soigner();
             col.enabled = false;
             Scoring.Instance.GagnerScore(gainScore, true);
+
+            if (Instantiate(fbCol.gameObject).TryGetComponent(out ParticleSystem partSys))
+            {
+                partSys.transform.position = transform.position;
+                ParticleSystem.MainModule main = partSys.main;
+                main.startColor = couleurFB;
+                int alea = Random.Range(0, sonsRamassage.Length);
+                audioSource.clip = sonsRamassage[alea];
+                audioSource.Play();
+            }
         }
     }
 

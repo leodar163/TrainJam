@@ -12,6 +12,10 @@ public class Bob : MonoBehaviour
     [SerializeField] private Cerfvolant cerfvolant;
     private bool estAccroupi = false;
 
+    [Header("son")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] sonsDegats;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -81,5 +85,11 @@ public class Bob : MonoBehaviour
         {
             cerfvolant.Blesser(degats);
         }
+
+        int alea = Random.Range(0, sonsDegats.Length);
+        audioSource.clip = sonsDegats[alea];
+        audioSource.Play();
     }
+
+
 }

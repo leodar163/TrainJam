@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7847121428912359724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 0
   direction: {x: 0, y: 0, z: 0}
+  fbCol: {fileID: 7847048054443918661, guid: 40b18ad0e14c4e342aab7246209741f8, type: 3}
+  couleurFB: {r: 0.7924528, g: 0.188396, b: 0.10840159, a: 1}
 --- !u!60 &2203543114138499884
 PolygonCollider2D:
   m_ObjectHideFlags: 0

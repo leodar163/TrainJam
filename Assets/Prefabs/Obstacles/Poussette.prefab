@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vitesse: 0
   direction: {x: 0, y: 0, z: 0}
+  fbCol: {fileID: 7847048054443918661, guid: 40b18ad0e14c4e342aab7246209741f8, type: 3}
+  couleurFB: {r: 0.7924528, g: 0.188396, b: 0.10840159, a: 1}
 --- !u!60 &8786546481721494857
 PolygonCollider2D:
   m_ObjectHideFlags: 0

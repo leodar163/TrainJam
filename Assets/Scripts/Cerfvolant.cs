@@ -9,6 +9,11 @@ public class Cerfvolant : MonoBehaviour
     [SerializeField] private float vitessemouvement = 1f;
     [SerializeField] private ZoneCerfvolant zoneCerfvolant;
     [SerializeField] [Min(1)] private int pV = 1;
+
+    [Header("son")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] sonsDegats;
+    [SerializeField] private AudioClip[] sonsSoins;
     public int PV
     {
         get
@@ -72,10 +77,16 @@ public class Cerfvolant : MonoBehaviour
                 break;
             }
         }
+        int alea = Random.Range(0, sonsDegats.Length);
+        audioSource.clip = sonsDegats[alea];
+        audioSource.Play();
     }
 
     public void Soigner(int soin = 1)
     {
         pV += soin;
+        int alea = Random.Range(0, sonsSoins.Length);
+        audioSource.clip = sonsSoins[alea];
+        audioSource.Play();
     }
 }

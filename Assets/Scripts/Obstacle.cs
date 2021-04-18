@@ -6,7 +6,9 @@ public class Obstacle : MonoBehaviour
 {
     public float vitesse;
     public Vector3 direction;
-
+    [Header("FeedBack")]
+    [SerializeField] ParticleSystem fbCol;
+    [SerializeField] Color couleurFB;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,12 @@ public class Obstacle : MonoBehaviour
 
     private void SeDetruire()
     {
+        if(Instantiate(fbCol.gameObject).TryGetComponent(out ParticleSystem partSys))
+        {
+            partSys.transform.position = transform.position;
+            ParticleSystem.MainModule main = partSys.main;
+            main.startColor = couleurFB;
+        }
         Destroy(gameObject);
     }
 }
