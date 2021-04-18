@@ -61,8 +61,8 @@ public class SpawnerCerfPerdu : MonoBehaviour
     private IEnumerator RoutineSpawn()
     {
         float temps = 0;
-        float tempsCible = Random.Range(frequenceInitiale - aleaFrequence + Mathf.Log10(Time.realtimeSinceStartup)
-            , frequenceInitiale + aleaFrequence + Mathf.Log10(Time.realtimeSinceStartup));
+        float tempsCible = Random.Range(frequenceInitiale - aleaFrequence + Mathf.Log10(Time.timeSinceLevelLoad + 0.1f)
+            , frequenceInitiale + aleaFrequence + Mathf.Log10(Time.timeSinceLevelLoad +0.1f));
         tempsCible = Mathf.Min(frequenceMax, tempsCible);
         while (temps < tempsCible)
         {
@@ -92,9 +92,10 @@ public class SpawnerCerfPerdu : MonoBehaviour
         if (Instantiate(cerfPerdus[alea]).TryGetComponent(out CerfPerdu cerfPerdu))
         {
             cerfPerdu.direction = direction;
-            cerfPerdu.vitesse += Mathf.Min(vitesseMax, Random.Range(vitesseInitiale + Mathf.Log10(Time.realtimeSinceStartup) - aleaVitesse
-                , vitesseInitiale + Mathf.Log10(Time.realtimeSinceStartup) + aleaVitesse));
+            cerfPerdu.vitesse += Mathf.Min(vitesseMax, Random.Range(vitesseInitiale + Mathf.Log10(Time.timeSinceLevelLoad) - aleaVitesse
+                , vitesseInitiale + Mathf.Log10(Time.timeSinceLevelLoad) + aleaVitesse));
             cerfPerdu.transform.position = position;
+            cerfPerdu.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
         }
     }
 }

@@ -10,7 +10,7 @@ public class MenuDebut : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        annonceScore.text = "RECOR : " + PlayerPrefs.GetInt("Score");
+        annonceScore.text = "RECORD : " + PlayerPrefs.GetInt("Score");
     }
 
     // Update is called once per frame

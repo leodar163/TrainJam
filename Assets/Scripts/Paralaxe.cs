@@ -57,10 +57,14 @@ public class Paralaxe : MonoBehaviour
 
     private void GenerationInfinie()
     {
-        if (plage.transform.position.x <= -limitePlage) plage.transform.localPosition = new Vector3();
-        if (mer.transform.position.x <= -limiteMer) plage.transform.localPosition = new Vector3();
-        if (nuage1.transform.position.x <= -limiteNuage1) plage.transform.localPosition = new Vector3();
-        if (nuage2.transform.position.x <= -limiteNuage2) plage.transform.localPosition = new Vector3();
-        if (ciel.transform.position.x <= -limiteCiel) plage.transform.localPosition = new Vector3();
+        Vector3 nvllePosition = Vector3.zero;
+        if (plage.transform.localPosition.x <= -limitePlage) plage.transform.localPosition = nvllePosition;
+        if (mer.transform.localPosition.x <= -limiteMer) mer.transform.localPosition = nvllePosition;
+        nvllePosition.z = nuage1.transform.localPosition.z;
+        if (nuage1.transform.localPosition.x <= -limiteNuage1) nuage1.transform.localPosition = nvllePosition;
+        nvllePosition.z = nuage2.transform.localPosition.z;
+        if (nuage2.transform.localPosition.x <= -limiteNuage2) nuage2.transform.localPosition = nvllePosition;
+        nvllePosition.z = ciel.transform.localPosition.z;
+        if (ciel.transform.localPosition.x <= -limiteCiel) ciel.transform.localPosition = nvllePosition;
     }
 }

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421005548878828111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2898026, y: -3.9976487, z: -6.5423756}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4359719018654341752}
@@ -43,7 +43,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   cerfvolant: {fileID: 4359719018654341703}
   lineRend: {fileID: 4359719018721329241}
   distanceEntreSegments: 0.5
-  tempsSegment: 6
+  tempsSegment: 4
   vitesseOndulation: 5
   amplitudeOndulation: 0.003
 --- !u!1 &4359719019284987411

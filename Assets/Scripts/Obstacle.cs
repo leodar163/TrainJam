@@ -29,7 +29,7 @@ public class Obstacle : MonoBehaviour
 
     private void SeProjeter()
     {
-        transform.Translate(direction * vitesse * Time.fixedDeltaTime);
+        transform.Translate(direction * vitesse * Time.fixedDeltaTime, Space.World);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

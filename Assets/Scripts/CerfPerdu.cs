@@ -37,7 +37,7 @@ public class CerfPerdu : MonoBehaviour
 
     private void SeProjeter()
     {
-        transform.Translate(direction * vitesse * Time.fixedDeltaTime);
+        transform.Translate(direction * vitesse * Time.fixedDeltaTime, Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -61,8 +61,8 @@ public class SpawnerObstacle : MonoBehaviour
     private IEnumerator RoutineSpawn()
     {
         float temps = 0 ;
-        float tempsCible = Random.Range(frequenceInitiale - aleaFrequence - Mathf.Log10(Time.realtimeSinceStartup)
-            , frequenceInitiale + aleaFrequence - Mathf.Log10(Time.realtimeSinceStartup));
+        float tempsCible = Random.Range(frequenceInitiale - aleaFrequence - Mathf.Log10(Time.timeSinceLevelLoad + 0.1f)
+            , frequenceInitiale + aleaFrequence - Mathf.Log10(Time.timeSinceLevelLoad + 0.1f));
         tempsCible = Mathf.Max(frequenceMin, tempsCible);
         while (temps < tempsCible)
         {
@@ -92,9 +92,10 @@ public class SpawnerObstacle : MonoBehaviour
         if(Instantiate(obstacles[alea]).TryGetComponent(out Obstacle obstacle))
         {
             obstacle.direction = direction;
-            obstacle.vitesse += Mathf.Min(vitesseMax,Random.Range(vitesseInitiale + Mathf.Log10(Time.realtimeSinceStartup) - aleaVitesse
-                , vitesseInitiale + Mathf.Log10(Time.realtimeSinceStartup) + aleaVitesse));
+            obstacle.vitesse += Mathf.Min(vitesseMax,Random.Range(vitesseInitiale + Mathf.Log10(Time.timeSinceLevelLoad) - aleaVitesse
+                , vitesseInitiale + Mathf.Log10(Time.timeSinceLevelLoad) + aleaVitesse));
             obstacle.transform.position = position;
+            //obstacle.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
         }
     }
 }
